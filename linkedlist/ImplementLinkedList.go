@@ -11,6 +11,11 @@ type Linkedlist struct {
 	head *Node
 }
 
+//GetHead : It will return the head of the linked list
+func (l *Linkedlist) GetHead() *Node {
+	return l.head
+}
+
 //Insert : insert new element in the linked list
 func (l *Linkedlist) Insert(val string) {
 	n := Node{}
@@ -63,8 +68,10 @@ func (l *Linkedlist) Delete(val string) string {
 func (l *Linkedlist) Print() {
 	current := l.head
 	ans := ""
+	ans += current.value + "-->"
+	current = current.next
 	for {
-		if current == nil {
+		if current == nil || current == l.head {
 			break
 		}
 		ans += (current.value + "-->")

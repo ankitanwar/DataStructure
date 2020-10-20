@@ -5,14 +5,19 @@ func (l *Linkedlist) Middle() string {
 	slow := l.head
 	fast := l.head
 
-	println("The value of the slow and fast is ", slow.value, fast)
+	// it means only one element is present in the list
+	if fast.next == nil {
+		return fast.value
+	}
 
-	for {
-		if fast.next == nil || fast.next.next == nil {
-			return slow.value
+	for true {
+		fast = fast.next.next
+		if fast == nil || fast.next == nil {
+			return slow.next.value
 		}
 
 		slow = slow.next
-		fast = fast.next.next
 	}
+	return ""
+
 }

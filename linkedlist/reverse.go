@@ -18,3 +18,22 @@ func (l *Linkedlist) Reverse() {
 	}
 
 }
+
+//ReverseRecursive : This function will recursively Reverse the linked list
+func (l *Linkedlist) ReverseRecursive(node *Node) *Node {
+	if node == nil {
+		return nil
+	}
+	if node.next == nil {
+		l.head = node
+		return node
+	}
+	var p *Node
+	p = node.next
+	l.ReverseRecursive(p)
+
+	p.next = node
+	node.next = nil
+	return node
+
+}
