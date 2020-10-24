@@ -2,9 +2,9 @@ package linkedlist
 
 //Dnode : node of a doubly linked list
 type Dnode struct {
-	prev  *Dnode
-	next  *Dnode
-	value string
+	Prev  *Dnode
+	Next  *Dnode
+	Value string
 }
 
 // Dlinkedlist : doubly linked list
@@ -16,18 +16,18 @@ type Dlinkedlist struct {
 func (d *Dlinkedlist) Insert(val string) *Dnode {
 	current := d.head
 	n := &Dnode{}
-	n.value = val
+	n.Value = val
 	if d.head == nil {
 		d.head = n
 		return d.head
 	}
 	for {
-		if current.next == nil {
-			current.next = n
-			n.prev = current
+		if current.Next == nil {
+			current.Next = n
+			n.Prev = current
 			return n
 		}
-		current = current.next
+		current = current.Next
 	}
 }
 
@@ -40,8 +40,8 @@ func (d *Dlinkedlist) Print() {
 		if current == nil {
 			break
 		}
-		ans += current.value + "-->"
-		current = current.next
+		ans += current.Value + "-->"
+		current = current.Next
 
 	}
 	println(ans)
@@ -50,30 +50,30 @@ func (d *Dlinkedlist) Print() {
 //Ddlete : To delete the node in the doubly linked list
 func (d *Dlinkedlist) Ddlete(s string) {
 	current := d.head
-	if current.value == s {
-		temp := current.next
+	if current.Value == s {
+		temp := current.Next
 		d.head = temp
-		current.next = nil
+		current.Next = nil
 		return
 	}
 
 	for {
-		if current.value == s {
-			if current.next == nil {
-				prev := current.prev
-				prev.next = nil
+		if current.Value == s {
+			if current.Next == nil {
+				prev := current.Prev
+				prev.Next = nil
 				break
 
 			} else {
-				prev := current.prev
-				nxt := current.next
-				nxt.prev = current.prev.prev
-				prev.next = current.next.next
+				prev := current.Prev
+				nxt := current.Next
+				nxt.Prev = current.Prev.Prev
+				prev.Next = current.Next.Next
 				break
 			}
 		}
 
-		current = current.next
+		current = current.Next
 
 	}
 
