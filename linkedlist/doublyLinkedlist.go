@@ -9,17 +9,17 @@ type Dnode struct {
 
 // Dlinkedlist : doubly linked list
 type Dlinkedlist struct {
-	head *Dnode
+	Head *Dnode
 }
 
 // Insert : To insert the value in the doubly linked list
 func (d *Dlinkedlist) Insert(val string) *Dnode {
-	current := d.head
+	current := d.Head
 	n := &Dnode{}
 	n.Value = val
-	if d.head == nil {
-		d.head = n
-		return d.head
+	if d.Head == nil {
+		d.Head = n
+		return d.Head
 	}
 	for {
 		if current.Next == nil {
@@ -33,7 +33,7 @@ func (d *Dlinkedlist) Insert(val string) *Dnode {
 
 // Print : To The doubly linked list
 func (d *Dlinkedlist) Print() {
-	current := d.head
+	current := d.Head
 	ans := ""
 
 	for {
@@ -49,10 +49,10 @@ func (d *Dlinkedlist) Print() {
 
 //Ddlete : To delete the node in the doubly linked list
 func (d *Dlinkedlist) Ddlete(s string) {
-	current := d.head
+	current := d.Head
 	if current.Value == s {
 		temp := current.Next
-		d.head = temp
+		d.Head = temp
 		current.Next = nil
 		return
 	}

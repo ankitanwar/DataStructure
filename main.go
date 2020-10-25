@@ -1,18 +1,27 @@
 package main
 
 import (
-	stackandqueues "babbar/stackAndQueues"
+	stackandqueues "babbar/stackandqueues"
 	"fmt"
 )
 
 func main() {
-	s := stackandqueues.StackUsingDQueues{}
+	s := stackandqueues.Midstack{}
 	s.Insert("1")
 	s.Insert("2")
 	s.Insert("3")
 	s.Insert("4")
 	s.Insert("5")
-	ans := s.Delete()
-	fmt.Println(ans)
+	fmt.Println(s.GetMiddle())
+	s.Print()
+	s.Delete()
+	println("x-x-x-x-x-x-x--x")
+	fmt.Println(s.GetMiddle())
+	s.Print()
+	s.Delete()
+	s.Delete()
+	println("x-x-x-x-x-x-x--x")
+	fmt.Println(s.GetMiddle())
+	s.Print()
 
 }
