@@ -27,3 +27,12 @@ func (q *Queue) Print() {
 	}
 	fmt.Println("")
 }
+
+//GetLen : To return the length of the queue
+func (q *Queue) GetLen() int {
+	return len(q.arr)
+}
+
+func (q *Queue) Peek() string {
+	return q.arr[0]
+}
