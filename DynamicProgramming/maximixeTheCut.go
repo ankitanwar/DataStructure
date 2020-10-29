@@ -35,7 +35,7 @@ func MaximizeCut2(RodLength int, arr []int) int {
 	}
 
 	for i := 0; i <= RodLength; i++ {
-		dp[0][i] = -1
+		dp[0][i] = -999
 	}
 	for j := 0; j <= len(arr); j++ {
 		dp[0][j] = 0

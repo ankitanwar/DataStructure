@@ -33,6 +33,7 @@ func (q *Queue) GetLen() int {
 	return len(q.arr)
 }
 
+//Peek : to know about the top element in the queue
 func (q *Queue) Peek() string {
 	return q.arr[0]
 }

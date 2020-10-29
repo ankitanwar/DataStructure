@@ -6,9 +6,8 @@ import (
 )
 
 func main() {
-	rodlength := 17
-	arr := []int{10, 11, 3}
-	res := dynamicprogramming.MaximizeCut2(rodlength, arr)
-	fmt.Println(res)
+
+	arr := []int{40, 20, 30, 10, 30}
+	fmt.Println(dynamicprogramming.MatrixChainMultiplicationDp(arr))
 
 }

@@ -1,7 +1,6 @@
 package dynamicprogramming
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -32,30 +31,16 @@ func KnapSack2(value, weight []int, capacity int) int {
 		matrix = append(matrix, temp)
 	}
 
-	for i := 0; i <= len(value); i++ {
-		matrix[i][0] = 0
-	}
-	for i := 1; i <= capacity; i++ {
-		matrix[0][i] = 0
-	}
-
-	for i := 1; i <= len(weight); i++ {
-		current := value[i-1]
-		for j := 1; j <= capacity; j++ {
-			if j <= capacity {
-				matrix[i][j] = int(math.Max(float64(current+matrix[i-1][capacity-j]), float64(matrix[i-1][j])))
+	for i := 0; i <= len(weight); i++ {
+		for j := 0; j <= capacity; j++ {
+			if i == 0 || j == 0 {
+				matrix[i][j] = 0
+			} else if weight[i-1] <= j {
+				matrix[i][j] = maximum(value[i-1]+matrix[i-1][j-weight[i-1]], matrix[i-1][j])
 			} else {
 				matrix[i][j] = matrix[i-1][j]
 			}
 		}
-	}
-
-	println("The value of matrix is ")
-	for i := 0; i < len(matrix); i++ {
-		for j := 0; j < len(matrix[0]); j++ {
-			fmt.Printf("%v ", matrix[i][j])
-		}
-		println("")
 	}
 
 	return matrix[len(weight)][capacity]
