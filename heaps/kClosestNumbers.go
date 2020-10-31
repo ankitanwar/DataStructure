@@ -9,7 +9,7 @@ import (
 func KClosestNumbers(arr []int, k, num int) []int {
 	ans := []int{}
 
-	h := &KeyHeap{}
+	h := &MaxKeyHeap{}
 	heap.Init(h)
 
 	for i := 0; i < len(arr); i++ {

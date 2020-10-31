@@ -6,8 +6,10 @@ import (
 )
 
 func main() {
-
-	arr := []int{40, 20, 30, 10, 30}
-	fmt.Println(dynamicprogramming.MatrixChainMultiplicationDp(arr))
+	arr := [][]int{{1, 2, 3},
+		{4, 8, 2},
+		{1, 5, 3}}
+	res := dynamicprogramming.MinimumPath(arr, 2, 2)
+	fmt.Println(res)
 
 }

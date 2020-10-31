@@ -5,7 +5,7 @@ import "container/heap"
 //TopKFrequent : To find the top k frequent numbers in the given array
 func TopKFrequent(arr []int, k int) []int {
 	ans := []int{}
-	h := &KeyHeap{}
+	h := &MinKeyHeap{}
 	heap.Init(h)
 
 	dict := make(map[int]int)
