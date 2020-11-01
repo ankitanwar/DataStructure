@@ -2,25 +2,25 @@ package linkedlist
 
 //RemoveDuplicatesSorted : It removes the duplicate in the sorted linked list
 func (l *Linkedlist) RemoveDuplicatesSorted() string {
-	slow := l.head
-	if slow.next == nil {
+	slow := l.Head
+	if slow.Next == nil {
 		return "There is no duplicates element in the linked list"
 	}
-	fast := l.head.next
+	fast := l.Head.Next
 
 	for {
 		if fast == nil {
 			break
 		}
-		if slow.value == fast.value {
-			fast = fast.next
+		if slow.Value == fast.Value {
+			fast = fast.Next
 		} else {
-			slow.next = fast
+			slow.Next = fast
 			slow = fast
-			fast = fast.next
+			fast = fast.Next
 		}
 	}
-	slow.next = fast
+	slow.Next = fast
 
 	return "All the duplicates has been removed successfully"
 }

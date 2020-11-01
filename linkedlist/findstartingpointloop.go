@@ -1,25 +1,25 @@
 package linkedlist
 
 //StartingPoint : it gives the starting point of the loop in the linked list
-func (l *Linkedlist) StartingPoint() string {
-	slow := l.head
-	fast := l.head
+func (l *Linkedlist) StartingPoint() interface{} {
+	slow := l.Head
+	fast := l.Head
 
 	for {
-		if fast == nil || fast.next == nil {
+		if fast == nil || fast.Next == nil {
 			return "There is no loop detected in the linked list"
 		}
-		fast = fast.next.next
-		slow = slow.next
+		fast = fast.Next.Next
+		slow = slow.Next
 
 		if fast == slow {
-			slow := l.head
-			for slow.next != fast.next {
-				slow = slow.next
-				fast = fast.next
+			slow := l.Head
+			for slow.Next != fast.Next {
+				slow = slow.Next
+				fast = fast.Next
 			}
 
-			ans := fast.next.value
+			ans := fast.Next.Value
 
 			return ans
 		}

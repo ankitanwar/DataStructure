@@ -37,6 +37,16 @@ func (h *MaxHeap) Push(x interface{}) {
 	*h = append(*h, x.(int))
 }
 
+//Peek : It will retun the top element in the heap
+func (h *MinHeap) Peek() interface{} {
+	return (*h)[0]
+}
+
+//Peek : It will return the top element in the heap
+func (h *MaxHeap) Peek() interface{} {
+	return (*h)[0]
+}
+
 //Pop : to remove item from the heap
 func (h *MaxHeap) Pop() interface{} {
 	old := *h

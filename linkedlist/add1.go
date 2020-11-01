@@ -1,25 +1,20 @@
 package linkedlist
 
-import (
-	"strconv"
-)
-
 //Add1 : It will add 1 to the linked list
 func (l *Linkedlist) Add1(num int) {
 	l.Reverse()
 	carry := 0
-	current := l.head
-	temp, _ := strconv.Atoi(current.value)
-	sum := temp + num
+	current := l.Head
+	sum := current.Value.(int) + num
 
 	if sum >= 10 {
 		data := sum % 10
-		current.value = strconv.Itoa(data)
+		current.Value = data
 		carry = 1
-		current = current.next
+		current = current.Next
 	} else {
-		current.value = strconv.Itoa(sum)
-		current = current.next
+		current.Value = sum
+		current = current.Next
 	}
 
 	for {
@@ -27,19 +22,18 @@ func (l *Linkedlist) Add1(num int) {
 		if current == nil {
 			break
 		}
-		temp, _ := strconv.Atoi(current.value)
-		sum := temp + carry
+		sum := carry + current.Value.(int)
 
 		if sum >= 10 {
 			data := sum % 10
-			current.value = strconv.Itoa(data)
+			current.Value = data
 			carry = 1
 		} else {
-			current.value = strconv.Itoa(sum)
+			current.Value = sum
 			carry = 0
 		}
 
-		current = current.next
+		current = current.Next
 
 	}
 	if carry != 0 {

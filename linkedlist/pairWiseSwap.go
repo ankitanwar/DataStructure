@@ -8,21 +8,21 @@ func (l *Linkedlist) Pairwise(node *Node) {
 	if current == nil {
 		return
 	}
-	if current.next == nil {
+	if current.Next == nil {
 		return
 	}
-	l.head = current.next
+	l.Head = current.Next
 	for {
-		fmt.Println("the value of current is ", current.value)
-		q := current.next
-		temp := q.next
-		q.next = current
+		fmt.Println("the value of current is ", current.Value.(string))
+		q := current.Next
+		temp := q.Next
+		q.Next = current
 
-		if temp == nil || temp.next == nil {
-			current.next = temp
+		if temp == nil || temp.Next == nil {
+			current.Next = temp
 			return
 		}
-		current.next = temp.next
+		current.Next = temp.Next
 		current = temp
 	}
 }

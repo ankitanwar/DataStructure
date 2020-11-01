@@ -2,13 +2,13 @@ package linkedlist
 
 // CheckCircular : To check whether the given list is circular or not
 func (l *Linkedlist) CheckCircular() bool {
-	current := l.head
+	current := l.Head
 
 	if current == nil {
 		return true
 	}
 
-	node := current.next
+	node := current.Next
 
 	for {
 		if node == current {
@@ -17,21 +17,21 @@ func (l *Linkedlist) CheckCircular() bool {
 		if node == nil {
 			return false
 		}
-		node = node.next
+		node = node.Next
 	}
 }
 
 // Mcircular : to make the linked list circular
 func (l *Linkedlist) Mcircular() {
-	current := l.head
+	current := l.Head
 
 	for {
-		if current.next == nil {
+		if current.Next == nil {
 			break
 		}
-		current = current.next
+		current = current.Next
 
 	}
-	current.next = l.head
+	current.Next = l.Head
 	println("We have made the linked list circular successfully")
 }

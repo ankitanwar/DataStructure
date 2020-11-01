@@ -3,16 +3,16 @@ package linkedlist
 //Reverse : This will reverse the linked list
 func (l *Linkedlist) Reverse() {
 	var prev *Node
-	current := l.head
+	current := l.Head
 
 	for {
-		if current.next == nil {
-			current.next = prev
-			l.head = current
+		if current.Next == nil {
+			current.Next = prev
+			l.Head = current
 			break
 		}
-		nxt := current.next
-		current.next = prev
+		nxt := current.Next
+		current.Next = prev
 		prev = current
 		current = nxt
 	}
@@ -24,16 +24,16 @@ func (l *Linkedlist) ReverseRecursive(node *Node) *Node {
 	if node == nil {
 		return nil
 	}
-	if node.next == nil {
-		l.head = node
+	if node.Next == nil {
+		l.Head = node
 		return node
 	}
 	var p *Node
-	p = node.next
+	p = node.Next
 	l.ReverseRecursive(p)
 
-	p.next = node
-	node.next = nil
+	p.Next = node
+	node.Next = nil
 	return node
 
 }

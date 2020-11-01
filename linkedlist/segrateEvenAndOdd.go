@@ -2,7 +2,6 @@ package linkedlist
 
 import (
 	"fmt"
-	"strconv"
 )
 
 // Segrate : It will segrate the even and the odd linked list
@@ -12,42 +11,40 @@ func (l *Linkedlist) Segrate() *Linkedlist {
 	evenlist := &Linkedlist{}
 	oddlist := &Linkedlist{}
 
-	current := l.head
+	current := l.Head
 
 	for {
 		if current == nil {
 			break
 		}
-
-		temp, _ := strconv.Atoi(current.value)
-		if temp%2 == 0 {
-			if evenlist.head == nil {
-				evenlist.head = current
-				eEnd = evenlist.head
+		if current.Value.(int)%2 == 0 {
+			if evenlist.Head == nil {
+				evenlist.Head = current
+				eEnd = evenlist.Head
 			} else {
-				eEnd.next = current
-				eEnd = eEnd.next
+				eEnd.Next = current
+				eEnd = eEnd.Next
 			}
 		} else {
-			if oddlist.head == nil {
-				oddlist.head = current
-				oEnd = oddlist.head
+			if oddlist.Head == nil {
+				oddlist.Head = current
+				oEnd = oddlist.Head
 			} else {
-				oEnd.next = current
-				oEnd = oEnd.next
+				oEnd.Next = current
+				oEnd = oEnd.Next
 			}
 		}
 
-		current = current.next
+		current = current.Next
 
 	}
-	fmt.Println(eEnd.value, oEnd.value)
+	fmt.Println(eEnd.Value, oEnd.Value)
 	if eEnd == nil || oEnd == nil {
 		return l
 	}
 
-	eEnd.next = oddlist.head
-	oEnd.next = nil
+	eEnd.Next = oddlist.Head
+	oEnd.Next = nil
 	evenlist.Print()
 	return evenlist
 

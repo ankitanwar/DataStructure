@@ -1,36 +1,30 @@
 package linkedlist
 
-import (
-	"strconv"
-)
-
 //AddTwo : It will add the two given linked list and retun the new linked list with sum
 func AddTwo(l1 *Linkedlist, l2 *Linkedlist) *Linkedlist {
 	ans := &Linkedlist{}
 	carry := 0
 	l1.Reverse()
 	l2.Reverse()
-	first := l1.head
-	second := l2.head
+	first := l1.Head
+	second := l2.Head
 
 	for {
 		if first == nil || second == nil {
 			break
 		}
-		temp1, _ := strconv.Atoi(first.value)
-		temp2, _ := strconv.Atoi(second.value)
 
-		sum := carry + temp1 + temp2
+		sum := carry + first.Value.(int) + second.Value.(int)
 		if sum >= 10 {
 			data := sum % 10
-			ans.Insert(strconv.Itoa(data))
+			ans.Insert(data)
 			carry = 1
 		} else {
-			ans.Insert(strconv.Itoa(sum))
+			ans.Insert(sum)
 			carry = 0
 		}
-		first = first.next
-		second = second.next
+		first = first.Next
+		second = second.Next
 	}
 
 	for {
@@ -38,33 +32,31 @@ func AddTwo(l1 *Linkedlist, l2 *Linkedlist) *Linkedlist {
 		if second == nil {
 			break
 		}
-		temp, _ := strconv.Atoi(second.value)
-		sum := carry + temp
+		sum := carry + second.Value.(int)
 		if sum >= 10 {
 			data := sum % 10
-			ans.Insert(strconv.Itoa(data))
+			ans.Insert(data)
 			carry = 1
 		} else {
-			ans.Insert(strconv.Itoa(sum))
+			ans.Insert(sum)
 			carry = 0
 		}
-		second = second.next
+		second = second.Next
 	}
 	for {
 		if first == nil {
 			break
 		}
-		temp, _ := strconv.Atoi(first.value)
-		sum := carry + temp
+		sum := carry + first.Value.(int)
 		if sum >= 10 {
 			data := sum % 10
-			ans.Insert(strconv.Itoa(data))
+			ans.Insert(data)
 			carry = 1
 		} else {
-			ans.Insert(strconv.Itoa(sum))
+			ans.Insert(sum)
 			carry = 0
 		}
-		first = first.next
+		first = first.Next
 	}
 	if carry != 0 {
 		ans.Insert("1")

@@ -1,15 +1,12 @@
 package main
 
 import (
-	dynamicprogramming "babbar/DynamicProgramming"
+	"babbar/heaps"
 	"fmt"
 )
 
 func main() {
-	arr := [][]int{{1, 2, 3},
-		{4, 8, 2},
-		{1, 5, 3}}
-	res := dynamicprogramming.MinimumPath(arr, 2, 2)
-	fmt.Println(res)
-
+	arr := []int{8, 5, 10, 7, 9, 4, 15, 12, 90, 13}
+	first := heaps.MaxOfAllSubArrays(arr, 4)
+	fmt.Printf("%v ", first)
 }

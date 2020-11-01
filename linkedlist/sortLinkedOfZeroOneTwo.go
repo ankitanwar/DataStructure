@@ -6,19 +6,18 @@ import "strconv"
 func (l *Linkedlist) Sort() {
 	count := [3]int{}
 
-	current := l.head
+	current := l.Head
 
 	for {
 
 		if current == nil {
 			break
 		}
-		temp1, _ := strconv.Atoi(current.value)
-		count[temp1]++
-		current = current.next
+		count[current.Value.(int)]++
+		current = current.Next
 	}
 
-	current = l.head
+	current = l.Head
 	i := 0
 	for {
 		if i > 2 || current == nil {
@@ -28,8 +27,8 @@ func (l *Linkedlist) Sort() {
 			i++
 		}
 		temp := strconv.Itoa(i)
-		current.value = temp
-		current = current.next
+		current.Value = temp
+		current = current.Next
 		count[i]--
 	}
 }

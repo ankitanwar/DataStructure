@@ -1,27 +1,23 @@
 package linkedlist
 
-import "strconv"
-
-// Delnodes : It will deleted those nodes whose value is greater
+// Delnodes : It will deleted those nodes whose Value is greater
 func (l *Linkedlist) Delnodes() {
 	l.Reverse()
-	current := l.head
-	max := current.value
+	current := l.Head
+	max := current.Value
 
 	for {
-		if current == nil || current.next == nil {
+		if current == nil || current.Next == nil {
 			break
 		}
-		temp1, _ := strconv.Atoi(max)
-		temp2, _ := strconv.Atoi(current.next.value)
 
-		if temp2 <= temp1 {
-			temp := current.next
-			current.next = temp.next
-			temp.next = nil
+		if current.Next.Value.(int) <= max.(int) {
+			temp := current.Next
+			current.Next = temp.Next
+			temp.Next = nil
 		} else {
-			current = current.next
-			max = current.value
+			current = current.Next
+			max = current.Value
 		}
 
 	}

@@ -3,22 +3,22 @@ package linkedlist
 //Pailndrome : It will check whether the given linked list is Pailndrome or not
 func (l Linkedlist) Pailndrome() bool {
 	var ans bool
-	slow := l.head
-	fast := l.head
+	slow := l.Head
+	fast := l.Head
 	var newHead *Node
 	for true {
-		fast = fast.next.next
+		fast = fast.Next.Next
 		if fast == nil {
-			newHead = slow.next
+			newHead = slow.Next
 			break
 		}
 
-		if fast.next == nil {
-			newHead = slow.next.next
+		if fast.Next == nil {
+			newHead = slow.Next.Next
 			break
 		}
 
-		slow = slow.next
+		slow = slow.Next
 	}
 
 	println("in starting the linked list is ")
@@ -26,14 +26,14 @@ func (l Linkedlist) Pailndrome() bool {
 	var prev *Node
 	current := newHead
 	for {
-		if current.next == nil {
-			current.next = prev
+		if current.Next == nil {
+			current.Next = prev
 			newHead = current
 			break
 		}
 
-		nxt := current.next
-		current.next = prev
+		nxt := current.Next
+		current.Next = prev
 		prev = current
 		current = nxt
 	}
@@ -41,22 +41,22 @@ func (l Linkedlist) Pailndrome() bool {
 	println("In the mid the linked list is ")
 	l.Print()
 
-	slow.next = newHead
+	slow.Next = newHead
 	println("The final linked list is ")
 	l.Print()
-	slow = l.head
+	slow = l.Head
 	for {
 		if newHead == nil {
 			ans = true
 			return ans
 		}
 
-		if slow.value != newHead.value {
+		if slow.Value.(string) != newHead.Value.(string) {
 			ans = false
 			return ans
 		}
-		slow = slow.next
-		newHead = newHead.next
+		slow = slow.Next
+		newHead = newHead.Next
 	}
 
 }

@@ -7,71 +7,71 @@ func (l *Linkedlist) IntersectionP(l2 *Linkedlist) string {
 	count1 := 0
 	count2 := 0
 
-	first := l.head
-	second := l2.head
+	first := l.Head
+	second := l2.Head
 
 	for {
 		if first == nil {
 			break
 		}
-		first = first.next
+		first = first.Next
 		count1++
 	}
 	for {
 		if second == nil {
 			break
 		}
-		second = second.next
+		second = second.Next
 		count2++
 	}
 
-	first = l.head
-	second = l2.head
+	first = l.Head
+	second = l2.Head
 
 	if count1 > count2 {
 		diff := count1 - count2
 		for i := 0; i < diff; i++ {
-			first = first.next
+			first = first.Next
 		}
 	} else if count2 > count1 {
 		diff := count2 - count1
 		for i := 0; i < diff; i++ {
-			second = second.next
+			second = second.Next
 		}
 	}
 
 	for {
 		if first == second {
-			return first.next.value
+			return first.Next.Value.(string)
 		}
-		if first.next == nil || second.next == nil {
+		if first.Next == nil || second.Next == nil {
 			return "There is no Intersection"
 		}
 
-		first = first.next
-		second = second.next
+		first = first.Next
+		second = second.Next
 	}
 
 }
 
 // MakeIntersection : This will make the intersection between the two linked list
 func (l *Linkedlist) MakeIntersection(l2 *Linkedlist) string {
-	first := l.head.next.next.next
+	first := l.Head.Next.Next.Next
 
-	second := l2.head
+	second := l2.Head
 	if second == nil {
 		return "Cannot make intersection with  an empty linked list"
 	}
 
 	for {
-		if second.next == nil {
+		if second.Next == nil {
 			break
 		}
 
-		second = second.next
+		second = second.Next
 	}
 
-	second.next = first
+	second.Next = first
 	return "Intersection has been made successfully"
 
 }

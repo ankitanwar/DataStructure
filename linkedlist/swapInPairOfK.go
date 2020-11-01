@@ -14,14 +14,14 @@ func (l *Linkedlist) ReverseN(node *Node) (n *Node) {
 
 	for {
 
-		if current.next == nil {
-			current.next = prev
-			l.head = prev
+		if current.Next == nil {
+			current.Next = prev
+			l.Head = prev
 			return current
 		}
 
-		nxt := current.next
-		current.next = prev
+		nxt := current.Next
+		current.Next = prev
 		prev = current
 		current = nxt
 	}
@@ -31,13 +31,13 @@ func (l *Linkedlist) ReverseN(node *Node) (n *Node) {
 func (l *Linkedlist) ReverseInK(value int) *Node {
 	var newStart *Node
 	var q *Node
-	head := l.head
-	p := first(head, value)
+	Head := l.Head
+	p := first(Head, value)
 
 	newStart = p
 	q = p
 	for {
-		p = l.head
+		p = l.Head
 		fmt.Println(q)
 		break
 
@@ -55,7 +55,7 @@ func first(node *Node, k int) *Node {
 		if count == k {
 			return current
 		}
-		current = current.next
+		current = current.Next
 		count++
 	}
 }

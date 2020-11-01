@@ -2,15 +2,15 @@ package linkedlist
 
 //DetectLoop : To detect wherther there is an loop in the linked list or not
 func (l *Linkedlist) DetectLoop() string {
-	slow := l.head
-	fast := l.head
+	slow := l.Head
+	fast := l.Head
 
 	for {
-		if fast == nil || fast.next == nil || fast.next.next == nil {
+		if fast == nil || fast.Next == nil || fast.Next.Next == nil {
 			return "There is no loop detcted"
 		}
-		fast = fast.next.next
-		slow = slow.next
+		fast = fast.Next.Next
+		slow = slow.Next
 
 		if fast == slow {
 			return "There is an loop in the linked list"
@@ -20,18 +20,18 @@ func (l *Linkedlist) DetectLoop() string {
 
 // Makeloop : it is used to make the loop in the linked list
 func (l *Linkedlist) Makeloop() string {
-	first := l.head.next.next
-	second := l.head
+	first := l.Head.Next.Next
+	second := l.Head
 
 	for {
-		if second.next == nil {
+		if second.Next == nil {
 			break
 		}
 
-		second = second.next
+		second = second.Next
 	}
 
-	second.next = first
+	second.Next = first
 
 	return "loop has been created successfully"
 }

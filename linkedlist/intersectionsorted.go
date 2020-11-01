@@ -2,21 +2,21 @@ package linkedlist
 
 //IntersectionS : it gives the intersection of the two given linked list
 func (l *Linkedlist) IntersectionS(l2 *Linkedlist) *Linkedlist {
-	first := l.head
-	second := l2.head
+	first := l.Head
+	second := l2.Head
 	ans := &Linkedlist{}
 
 	for {
 		if second == nil || first == nil {
 			break
-		} else if second.value == first.value {
-			ans.Insert(first.value)
-			first = first.next
-			second = second.next
-		} else if first.value > second.value {
-			second = second.next
+		} else if second.Value == first.Value {
+			ans.Insert(first.Value)
+			first = first.Next
+			second = second.Next
+		} else if first.Value.(int) > second.Value.(int) {
+			second = second.Next
 		} else {
-			first = first.next
+			first = first.Next
 		}
 	}
 

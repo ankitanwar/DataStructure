@@ -3,24 +3,24 @@ package linkedlist
 // RemoveDuplicatesUnsorted : It will remove the duplicates from the unsorted list
 func (l *Linkedlist) RemoveDuplicatesUnsorted() {
 	myDict := make(map[string]int)
-	slow := l.head
-	fast := l.head.next
+	slow := l.Head
+	fast := l.Head.Next
 	i := 1
-	myDict[slow.value] = i
+	myDict[slow.Value.(string)] = i
 	for {
 		if fast == nil {
 			break
 		}
-		_, found := myDict[fast.value]
+		_, found := myDict[slow.Value.(string)]
 		if found {
-			fast = fast.next
+			fast = fast.Next
 		} else {
-			myDict[fast.value] = i
-			slow.next = fast
+			myDict[slow.Value.(string)] = i
+			slow.Next = fast
 			slow = fast
-			fast = fast.next
+			fast = fast.Next
 		}
 	}
-	slow.next = fast
+	slow.Next = fast
 
 }

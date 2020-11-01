@@ -2,80 +2,75 @@ package linkedlist
 
 //Node : it represent the node of the linked list
 type Node struct {
-	value string
-	next  *Node
+	Value interface{}
+	Next  *Node
 }
 
 //Linkedlist : it represnt the linked list
 type Linkedlist struct {
-	head *Node
-}
-
-//GetHead : It will return the head of the linked list
-func (l *Linkedlist) GetHead() *Node {
-	return l.head
+	Head *Node
 }
 
 //Insert : insert new element in the linked list
-func (l *Linkedlist) Insert(val string) {
+func (l *Linkedlist) Insert(val interface{}) {
 	n := Node{}
-	n.value = val
+	n.Value = val
 
-	if l.head == nil {
-		l.head = &n
+	if l.Head == nil {
+		l.Head = &n
 		return
 	}
 
-	current := l.head
+	current := l.Head
 	for {
-		if current.next == nil {
+		if current.Next == nil {
 			break
 		}
-		current = current.next
+		current = current.Next
 	}
 
-	current.next = &n
+	current.Next = &n
 
 }
 
 // Delete : It is used to remove the node from this linked list
 func (l *Linkedlist) Delete(val string) string {
-	current := l.head
-	if current.value == val {
-		current = current.next
-		l.head = current
+	current := l.Head
+	if current.Value == val {
+		current = current.Next
+		l.Head = current
 		return "Element has been deleted Successfully"
 	}
 	prev := current
-	current = current.next
+	current = current.Next
 	for {
 		if current == nil {
 			return "Element not found in the LinkedList"
 		}
-		if current.value == val && current.next != nil {
-			prev.next = current.next.next
+		if current.Value == val && current.Next != nil {
+			prev.Next = current.Next.Next
 			return "Element has been deleted Successfully"
-		} else if current.value == val && current.next == nil {
-			prev.next = nil
+		} else if current.Value == val && current.Next == nil {
+			prev.Next = nil
 			return "Element has been deleted Successfully"
 		}
 		prev = current
-		current = current.next
+		current = current.Next
 	}
 }
 
 //Print : To print all the elements in the linked list
 func (l *Linkedlist) Print() {
-	current := l.head
+	current := l.Head
 	ans := ""
-	ans += current.value + "-->"
-	current = current.next
+	ans += current.Value.(string) + "-->"
+	current = current.Next
 	for {
-		if current == nil || current == l.head {
+		if current == nil || current == l.Head {
 			break
 		}
-		ans += (current.value + "-->")
-		current = current.next
+		ans += (current.Value.(string) + "-->")
+		current = current.Next
 	}
 
 	println(ans)

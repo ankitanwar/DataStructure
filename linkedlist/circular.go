@@ -4,48 +4,47 @@ import "fmt"
 
 // MakeCircular : To make the linked list circular
 func (l *Linkedlist) MakeCircular() {
-	current := l.head
+	current := l.Head
 	for {
-		if current.next == nil {
-			current.next = l.head
+		if current.Next == nil {
+			current.Next = l.Head
 			break
 		}
 
-		current = current.next
+		current = current.Next
 	}
 }
 
 // CircularDelete : To delete the linked list from circular
 func (l *Linkedlist) CircularDelete(s string) {
-	current := l.head
-	if current.value == s {
-		println("First condition is owkring")
-		temp := l.head
+	current := l.Head
+	if current.Value == s {
+		temp := l.Head
 		for {
-			if temp.next == l.head {
-				temp.next = temp.next.next
-				l.head = temp.next.next
-				current.next = nil
+			if temp.Next == l.Head {
+				temp.Next = temp.Next.Next
+				l.Head = temp.Next.Next
+				current.Next = nil
 				return
 			}
 
-			temp = temp.next
+			temp = temp.Next
 
 		}
 	}
 
-	fmt.Println("At the starting the value is ", current.value)
+	fmt.Println("At the starting the Value is ", current.Value)
 	for {
 
-		if current.next == l.head || current.next.value == s {
+		if current.Next == l.Head || current.Next.Value == s {
 			break
 		}
-		current = current.next
+		current = current.Next
 	}
-	fmt.Println("at present the current is ", current.value)
-	if current.next.value == s {
-		temp := current.next
-		current.next = temp.next
+	fmt.Println("at present the current is ", current.Value)
+	if current.Next.Value == s {
+		temp := current.Next
+		current.Next = temp.Next
 	} else {
 		println("Value not found in the database")
 	}
