@@ -1,5 +1,7 @@
 package linkedlist
 
+import "strconv"
+
 //Node : it represent the node of the linked list
 type Node struct {
 	Value interface{}
@@ -63,13 +65,13 @@ func (l *Linkedlist) Delete(val string) string {
 func (l *Linkedlist) Print() {
 	current := l.Head
 	ans := ""
-	ans += current.Value.(string) + "-->"
+	ans += strconv.Itoa(current.Value.(int)) + "-->"
 	current = current.Next
 	for {
 		if current == nil || current == l.Head {
 			break
 		}
-		ans += (current.Value.(string) + "-->")
+		ans += strconv.Itoa(current.Value.(int)) + "-->"
 		current = current.Next
 	}
 

@@ -1,12 +1,13 @@
 package main
 
 import (
-	"babbar/heaps"
+	dynamicprogramming "babbar/DynamicProgramming"
 	"fmt"
 )
 
 func main() {
-	arr := []int{8, 5, 10, 7, 9, 4, 15, 12, 90, 13}
-	first := heaps.MaxOfAllSubArrays(arr, 4)
-	fmt.Printf("%v ", first)
+	arr := []int{334, 500, 169, 724, 478, 358, 962, 464, 705, 145, 281, 827, 961, 491, 995, 942, 827}
+	ans := dynamicprogramming.MaximumProfit(arr)
+	fmt.Println(ans)
+
 }
