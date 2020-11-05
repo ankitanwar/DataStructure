@@ -23,10 +23,10 @@ func MedianInStream(array []int) {
 
 //addNumber : To add the numbers into the heap
 func addNumber(number int, h1 *MaxHeap, h2 *MinHeap) {
-	if h2.Len() == 0 || h2.Peek().(int) > number {
-		heap.Push(h2, number)
-	} else {
+	if h1.Len() == 0 || h1.Peek().(int) > number {
 		heap.Push(h1, number)
+	} else {
+		heap.Push(h2, number)
 	}
 }
 
@@ -34,7 +34,7 @@ func balance(h1 *MaxHeap, h2 *MinHeap) {
 	if h1.Len() > h2.Len() && h1.Len()-h2.Len() >= 2 {
 		temp := heap.Pop(h1)
 		heap.Push(h2, temp)
-	} else if h1.Len() < h2.Len() && h2.Len()-h1.Len() >= 2 {
+	} else if h1.Len() < h2.Len() {
 		temp := heap.Pop(h2)
 		heap.Push(h1, temp)
 	}
