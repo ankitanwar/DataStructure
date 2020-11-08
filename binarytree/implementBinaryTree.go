@@ -79,9 +79,12 @@ func ConstructBinaryTree(array []interface{}) {
 			current.Operation++
 		}
 	}
-	fmt.Println(root.Right == nil)
-
-	Display(root)
+	ans := []int{}
+	find := FindElement(root, 12, &ans)
+	fmt.Println(find)
+	if find == true {
+		fmt.Printf("%v ", ans)
+	}
 }
 
 //Display : It will display the binary tree
