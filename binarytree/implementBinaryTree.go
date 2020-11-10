@@ -23,8 +23,13 @@ type stack struct {
 
 }
 
+//BinaryTree : it will implement the binary tree
+type BinaryTree struct {
+	root *Node
+}
+
 //ConstructBinaryTree : To construct the binary tree from the given array
-func ConstructBinaryTree(array []interface{}) {
+func ConstructBinaryTree(array []interface{}) *Node {
 	newStack := []stack{}
 	root := &Node{
 		Data: array[0],
@@ -32,6 +37,9 @@ func ConstructBinaryTree(array []interface{}) {
 	temp := &stack{
 		Value:     root,
 		Operation: 1,
+	}
+	tree := BinaryTree{
+		root: root,
 	}
 	newStack = append(newStack, *temp)
 	i := 0
@@ -79,12 +87,7 @@ func ConstructBinaryTree(array []interface{}) {
 			current.Operation++
 		}
 	}
-	ans := []int{}
-	find := FindElement(root, 12, &ans)
-	fmt.Println(find)
-	if find == true {
-		fmt.Printf("%v ", ans)
-	}
+	return tree.root
 }
 
 //Display : It will display the binary tree
