@@ -5,6 +5,12 @@ import (
 	"strconv"
 )
 
+//DiagonalOrder : struct for diagonal order traversal
+type DiagonalOrder struct {
+	root  *Node
+	order int
+}
+
 //Preorder : It will give the pre oder traversal of the tree
 func Preorder(roots *Node) {
 	//->Node ->Left ->Right
@@ -124,4 +130,52 @@ func LevelOrder(root *Node) {
 	}
 
 	fmt.Println(lvl)
+}
+
+//DiagonalTraversal : It will do the diagonal order traversal of the tree
+func DiagonalTraversal(root *Node) {
+	if root == nil {
+		return
+	}
+
+	node := &DiagonalOrder{
+		root:  root,
+		order: 0,
+	}
+	q := []DiagonalOrder{}
+	myDict := make(map[int][]DiagonalOrder)
+	q = append(q, *node)
+	for {
+		if len(q) == 0 {
+			break
+		}
+		count := len(q)
+		for i := 0; i < count; i++ {
+			current := q[0]
+			q = q[1:]
+			myDict[current.order] = append(myDict[current.order], current)
+			if current.root.Left != nil {
+				temp := &DiagonalOrder{
+					root:  current.root.Left,
+					order: current.order + 1,
+				}
+				q = append(q, *temp)
+			}
+			if current.root.Right != nil {
+				temp := &DiagonalOrder{
+					root:  current.root.Right,
+					order: current.order,
+				}
+				q = append(q, *temp)
+			}
+		}
+	}
+	for key, value := range myDict {
+		for i := 0; i < len(value); i++ {
+			current := myDict[key][i]
+			fmt.Printf("%v ", current.root.Data)
+		}
+		println("")
+	}
+
 }

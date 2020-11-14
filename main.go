@@ -6,9 +6,9 @@ import (
 
 func main() {
 	array := make([]interface{}, 0)
-	array = append(array, 50, 25, 12, nil, nil, 37, nil, nil, 75, 62, nil, nil, 87, nil, nil)
+	array = append(array, 8, 3, 1, nil, nil, nil, 10, 6, 4, nil, nil, 7, nil, nil, 14, 13, nil, nil, nil)
 	root := binarytree.ConstructBinaryTree(array)
 	binarytree.LevelOrder(root)
-	binarytree.ZigZagTraversal(root)
+	binarytree.DiagonalTraversal(root)
 
 }
