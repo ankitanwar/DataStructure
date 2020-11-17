@@ -179,3 +179,45 @@ func DiagonalTraversal(root *Node) {
 	}
 
 }
+
+//BoundaryTraversal : IT will give the boundary traversal of the tree
+func BoundaryTraversal(root *Node) {
+	leftBoundary(root)
+	PrintLeaves(root)
+	rightBoundary(root.Right)
+}
+
+func leftBoundary(root *Node) {
+	if root != nil {
+		if root.Left != nil {
+			fmt.Println(root.Data)
+			leftBoundary(root.Left)
+		} else if root.Right != nil {
+			fmt.Println(root.Data)
+			leftBoundary(root.Left)
+		}
+	}
+}
+
+func rightBoundary(root *Node) {
+	if root != nil {
+		if root.Right != nil {
+			rightBoundary(root.Right)
+			fmt.Println(root.Data)
+		} else if root.Left != nil {
+			rightBoundary(root.Left)
+			fmt.Println(root.Data)
+		}
+	}
+}
+
+//PrintLeaves : To print the leave
+func PrintLeaves(root *Node) {
+	if root != nil {
+		PrintLeaves(root.Left)
+		if root.Left == nil && root.Right == nil {
+			fmt.Println(root.Data)
+		}
+		PrintLeaves(root.Right)
+	}
+}
