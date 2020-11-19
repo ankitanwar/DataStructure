@@ -111,7 +111,7 @@ func LevelOrder(root *Node) {
 		count := len(q)
 		for i := 0; i < count; i++ {
 			current := q[0]
-			lvl += strconv.Itoa(current.Value.Data.(int)) + "->"
+			lvl += strconv.Itoa(current.Value.Data.(int)) + "-> "
 			q = q[1:]
 			if current.Value.Left != nil {
 				temp := &stack{
@@ -220,4 +220,9 @@ func PrintLeaves(root *Node) {
 		}
 		PrintLeaves(root.Right)
 	}
+}
+
+//VerticalOrderTraversal : to traverse the tree in the vertical order
+func VerticalOrderTraversal(root *Node) {
+
 }
