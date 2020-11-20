@@ -17,7 +17,7 @@ func PrintAllPath(root *Node, targetSum int) {
 	for i := len(array) - 1; i >= 0; i-- {
 		currentSum += array[i]
 		if currentSum == targetSum {
-			for j := 0; j < len(array); j++ {
+			for j := i; j < len(array); j++ {
 				fmt.Printf("%v ", array[j])
 			}
 			println("")

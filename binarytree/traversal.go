@@ -222,7 +222,59 @@ func PrintLeaves(root *Node) {
 	}
 }
 
+type verticalOrder struct {
+	horizonatalDistance int
+	node                *Node
+}
+
 //VerticalOrderTraversal : to traverse the tree in the vertical order
 func VerticalOrderTraversal(root *Node) {
+	//we will assign the horizontal distance to each node
+	//-> for root 0
+	//-> for left its horizontal distance of root -1
+	//-> for right its horizontal distance of root +1
+
+	//Do the level order traversal and assign the values of the horizonatal distance and add the values with same horizonatal distance in the dict
+
+	q := []*verticalOrder{}
+	first := &verticalOrder{
+		horizonatalDistance: 0,
+		node:                root,
+	}
+	dict := make(map[int][]*Node)
+	q = append(q, first)
+	for {
+		if len(q) == 0 {
+			break
+		}
+		count := len(q)
+		for i := 0; i < count; i++ {
+			current := q[0]
+			q = q[1:]
+			dict[current.horizonatalDistance] = append(dict[current.horizonatalDistance], current.node)
+			if current.node.Left != nil {
+				temp := &verticalOrder{
+					horizonatalDistance: current.horizonatalDistance - 1,
+					node:                current.node.Left,
+				}
+				q = append(q, temp)
+			}
+			if current.node.Right != nil {
+				temp := &verticalOrder{
+					horizonatalDistance: current.horizonatalDistance + 1,
+					node:                current.node.Right,
+				}
+				q = append(q, temp)
+			}
+		}
+	}
+
+	for key := range dict {
+		for i := 0; i < len(dict[key]); i++ {
+			fmt.Printf("%v ", dict[key][i].Data.(int))
+		}
+		println("")
+
+	}
 
 }
