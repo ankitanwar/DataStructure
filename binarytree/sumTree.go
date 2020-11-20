@@ -11,3 +11,14 @@ func SumTree(root *Node) int {
 	root.Data = left + Right
 	return oldValue + root.Data.(int)
 }
+
+//CheckSumTree : To check whether the given tree is a sum tree or not
+func CheckSumTree(root *Node) int {
+	if root == nil {
+		return 0
+	}
+	if root.Left != nil && root.Right != nil {
+
+	}
+	return -9
+}
