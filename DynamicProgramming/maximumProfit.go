@@ -1,8 +1,9 @@
 package dynamicprogramming
 
 import (
-	"babbar/heaps"
 	"container/heap"
+
+	"github.com/ankitanwar/Golang-DataStructure/heaps"
 )
 
 //MaximumProfit : It will return the maximum profit when shares can be bought at max twice

@@ -1,6 +1,6 @@
 package stackandqueues
 
-import "babbar/linkedlist"
+import "github.com/ankitanwar/Golang-DataStructure/linkedlist"
 
 //StackUsingDQueues : To implement stack using deque
 type StackUsingDQueues struct {

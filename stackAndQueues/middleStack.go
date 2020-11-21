@@ -1,7 +1,7 @@
 package stackandqueues
 
 import (
-	"babbar/linkedlist"
+	"github.com/ankitanwar/Golang-DataStructure/linkedlist"
 )
 
 //Midstack : to implement the stack which perfom mid operation in O(1)

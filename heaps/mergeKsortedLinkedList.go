@@ -1,8 +1,9 @@
 package heaps
 
 import (
-	"babbar/linkedlist"
 	"container/heap"
+
+	"github.com/ankitanwar/Golang-DataStructure/linkedlist"
 )
 
 // MergeKsortedLinkedList : It will merge the linked list

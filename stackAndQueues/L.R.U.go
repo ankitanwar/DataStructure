@@ -1,6 +1,6 @@
 package stackandqueues
 
-import "babbar/linkedlist"
+import "github.com/ankitanwar/Golang-DataStructure/linkedlist"
 
 //Dict : Dictonary of LRu
 var Dict = make(map[string]*linkedlist.Dnode)

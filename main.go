@@ -1,8 +1,9 @@
 package main
 
 import (
-	"babbar/binarytree"
 	"fmt"
+
+	"github.com/ankitanwar/Golang-DataStructure/binarytree"
 )
 
 func main() {
