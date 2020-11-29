@@ -11,24 +11,25 @@ func BSTfromPreOrder(array []interface{}) *Node {
 	return root
 }
 
-func treeBuilderHelper(array []interface{}, root *Node, currentIndex, small, large int) *Node {
+func treeBuilderHelper(array []interface{}, root *Node, currentIndex, small, large int) int {
 	if currentIndex == len(array) || array[currentIndex].(int) < small || array[currentIndex].(int) > large {
-		println("This condition is true", array[currentIndex].(int))
-		return nil
+		return currentIndex
 	}
 	if root.Data.(int) > array[currentIndex].(int) {
 		root.Left = &Node{
 			Data: array[currentIndex],
 		}
 		currentIndex++
-		treeBuilderHelper(array, root.Left, currentIndex, small, root.Data.(int))
+		currentIndex = treeBuilderHelper(array, root.Left, currentIndex, small, root.Data.(int))
 	}
-	if root.Data.(int) < array[currentIndex].(int) {
-		root.Right = &Node{
-			Data: array[currentIndex],
-		}
-		currentIndex++
-		treeBuilderHelper(array, root.Right, currentIndex, root.Data.(int), large)
+	if currentIndex == len(array) || array[currentIndex].(int) < small || array[currentIndex].(int) > large {
+		return currentIndex
 	}
-	return root
+	root.Right = &Node{
+		Data: array[currentIndex],
+	}
+	currentIndex++
+	currentIndex = treeBuilderHelper(array, root.Right, currentIndex, root.Data.(int), large)
+
+	return currentIndex
 }
