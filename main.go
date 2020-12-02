@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	given := []int{2, 1, 4, 5, 6}
+	given := []int{1, 6, 2, 5, 3, 4}
 	backtracking.EqualSumPartion(given, 3)
 }
