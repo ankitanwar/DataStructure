@@ -2,6 +2,8 @@ package backtracking
 
 import "fmt"
 
+//microsoft hiring   -> given dict {micro} {soft} {micorosoft} {hiring}{hi}{ring}
+
 //WordBreak -> given a string and map of words we need to find out the numbers of ways in which we can divide the given string into the the map of given characters
 func WordBreak(given, currentAns string, words map[string]int) {
 	if len(given) == 0 {

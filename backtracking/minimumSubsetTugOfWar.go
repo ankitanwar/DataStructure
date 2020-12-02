@@ -1,5 +1,7 @@
 package backtracking
 
+import "fmt"
+
 var miin int = 9999999
 var ans1 []int
 var ans2 []int
@@ -19,20 +21,18 @@ func tugHelper(given, first, second []int, currentIndex, sumOfFirst, sumOfsecond
 			miin = del
 			ans1 = first
 			ans2 = second
+			fmt.Println(ans1, ans2)
 		}
+		return
 	}
-	if len(first) < (len(given)+1)/2 {
+	if len(first) <= (len(given)+1)/2 {
 		first = append(first, given[currentIndex])
-		currentIndex++
-		sumOfFirst += given[currentIndex]
-		tugHelper(given, first, second, currentIndex, sumOfFirst, sumOfsecond)
+		tugHelper(given, first, second, currentIndex+1, sumOfFirst+given[currentIndex], sumOfsecond)
 		first = first[:len(first)-1]
 	}
-	if len(second) < (len(given)+1)/2 {
+	if len(second) <= (len(given)+1)/2 {
 		second = append(second, given[currentIndex])
-		currentIndex++
-		sumOfsecond += given[currentIndex]
-		tugHelper(given, second, second, currentIndex, sumOfsecond, sumOfsecond)
+		tugHelper(given, second, second, currentIndex+1, sumOfsecond, sumOfsecond+given[currentIndex])
 		second = second[:len(second)-1]
 	}
 }
@@ -41,5 +41,5 @@ func abs(x int) int {
 	if x > 0 {
 		return x
 	}
-	return +x
+	return -x
 }

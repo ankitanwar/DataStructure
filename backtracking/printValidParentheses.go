@@ -46,6 +46,7 @@ func minRemovals(s string) int {
 
 }
 
+//to avoid duplicate printing
 func contains(target string) bool {
 	for i := 0; i < len(ans); i++ {
 		if ans[i] == target {
