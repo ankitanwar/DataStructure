@@ -1,10 +1,13 @@
 package main
 
 import (
-	"github.com/ankitanwar/Golang-DataStructure/backtracking"
+	"fmt"
+
+	dynamicprogramming "github.com/ankitanwar/Golang-DataStructure/DynamicProgramming"
 )
 
 func main() {
-	given := []int{1, 6, 2, 5, 3, 4}
-	backtracking.EqualSumPartion(given, 3)
+	given := "aab"
+	ans := dynamicprogramming.PailndromicPartionDp(given, 0, len(given)-1)
+	fmt.Println(ans)
 }

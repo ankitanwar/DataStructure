@@ -39,7 +39,7 @@ func solveInterleaveDP(matrix *[10][10]bool, str1, str2, str3 string, i, j, k in
 		return false
 	}
 	if matrix[i][j] != false {
-		println("This is working")
+		fmt.Println("This is working")
 		return matrix[i][j]
 	}
 	var first bool
