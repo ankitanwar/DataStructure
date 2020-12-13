@@ -25,3 +25,8 @@ func helpersubstring(currentindex int, s string) {
 	}
 	helpersubstring(currentindex+1, s)
 }
+
+//LongesPalindromicSubstringDP : To find out the length of the longest palindromic substring
+func LongesPalindromicSubstringDP(s string) {
+	println("hello world")
+}
