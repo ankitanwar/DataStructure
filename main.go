@@ -1,9 +1,10 @@
 package main
 
 import (
-	dynamicprogramming "github.com/ankitanwar/Golang-DataStructure/DynamicProgramming"
+	"github.com/ankitanwar/Golang-DataStructure/backtracking"
 )
 
 func main() {
-	dynamicprogramming.NumberOfBSTPossible(5)
+	arr := []int{2, 1, 4, 5, 6}
+	backtracking.DivideIntoKSubset(arr, 3)
 }

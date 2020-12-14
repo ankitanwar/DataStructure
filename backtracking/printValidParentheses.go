@@ -1,20 +1,25 @@
 package backtracking
 
-var ans []string
+var ans map[string]bool
 
 // RemoveInvalidParentheses : To remove the invalid parentheses from the given string
 func RemoveInvalidParentheses(s string) []string {
-	ans = ans[:0]
+	ans = make(map[string]bool)
 	minr := minRemovals(s)
 	helpers(s, minr)
-	return ans
+	res := []string{}
+	for key := range ans {
+		res = append(res, key)
+	}
+	return res
 }
 
 func helpers(s string, minRemovalsAllowed int) {
 	if minRemovalsAllowed == 0 {
 		if minRemovals(s) == 0 && contains(s) == false {
-			ans = append(ans, s)
+			ans[s] = true
 		}
+		return
 	}
 	for i := 0; i < len(s); i++ {
 		left := s[0:i]
@@ -48,10 +53,9 @@ func minRemovals(s string) int {
 
 //to avoid duplicate printing
 func contains(target string) bool {
-	for i := 0; i < len(ans); i++ {
-		if ans[i] == target {
-			return true
-		}
+	_, found := ans[target]
+	if found {
+		return true
 	}
 	return false
 }
