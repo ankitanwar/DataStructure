@@ -23,12 +23,39 @@ func sudokuHelper(board *[][]int, row, col int) {
 	}
 	if (*board)[row][col] == 0 {
 		for i := 1; i <= 9; i++ {
-			(*board)[row][col] = i
-			sudokuHelper(board, nextRow, nextCol)
-			(*board)[row][col] = 0
+			place := canPlaceNumber(*board, row, col, i)
+			if place {
+				(*board)[row][col] = i
+				sudokuHelper(board, nextRow, nextCol)
+				(*board)[row][col] = 0
+			}
 		}
 	} else {
 		sudokuHelper(board, nextRow, nextCol)
 	}
 
+}
+
+func canPlaceNumber(board [][]int, row, col, val int) bool {
+	for i := 0; i < len(board[0]); i++ {
+		if board[row][i] == val {
+			return false
+		}
+	}
+	for i := 0; i < len(board); i++ {
+		if board[i][col] == val {
+			return false
+		}
+	}
+	startRow := 3 * (row / 3)
+	starCol := 3 * (col / 3)
+	for i := 0; i < 3; i++ {
+		for j := 0; j < 3; j++ {
+			if board[startRow+i][starCol+j] == val {
+				return false
+			}
+		}
+	}
+
+	return true
 }
