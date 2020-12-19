@@ -33,6 +33,16 @@ func ConstructGraph(array []Edge) map[int][][]int {
 		graph[current.Source] = append(graph[current.Source], d1)
 		graph[current.Destination] = append(graph[current.Destination], d2)
 	}
+	return graph
+}
+
+//ConstructDirectedGraph : Function to construct a directed graph
+func ConstructDirectedGraph(array []Edge) map[int][][]int {
+	graph := make(map[int][][]int)
+	for i := 0; i < len(array); i++ {
+		d1 := []int{array[i].Destination, array[i].Weight}
+		graph[array[i].Source] = append(graph[array[i].Source], d1)
+	}
 	fmt.Println(graph)
 	return graph
 }
