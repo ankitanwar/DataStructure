@@ -12,13 +12,13 @@ func IsGraphCyclic(graph map[int][][]int) {
 		vertices[key] = false
 	}
 	var ans bool
-	var path string
+	//var path string
 	//In case the graph is not connected and we need to check wether the graph is cyclic or not
 	for key := range vertices {
 		if vertices[key] == false {
-			path, ans = helperDetectCycle(graph, &vertices, key)
+			ans = dfsApproach(graph, &vertices, -1, key)
 			if ans == true {
-				fmt.Println("There is a cycle in the graph", path)
+				fmt.Println("There is a cycle in the graph")
 				break
 			}
 		}
@@ -56,4 +56,18 @@ func helperDetectCycle(graph map[int][][]int, vertices *map[int]bool, source int
 	}
 
 	return "", false
+}
+
+func dfsApproach(graph map[int][][]int, visited *map[int]bool, parent, child int) bool {
+	(*visited)[child] = true
+	current := graph[child]
+	for i := 0; i < len(current); i++ {
+		if (*visited)[current[i][0]] == false {
+			dfsApproach(graph, visited, child, current[i][0])
+		} else if (*visited)[current[i][0]] == true && current[i][0] != parent {
+			return true // Yes there exist an cycle in the graph
+		}
+	}
+	return false
+
 }
