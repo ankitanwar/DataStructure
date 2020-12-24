@@ -33,6 +33,7 @@ func ConstructGraph(array []Edge) map[int][][]int {
 		graph[current.Source] = append(graph[current.Source], d1)
 		graph[current.Destination] = append(graph[current.Destination], d2)
 	}
+	fmt.Println(graph)
 	return graph
 }
 
