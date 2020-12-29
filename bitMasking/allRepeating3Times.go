@@ -12,3 +12,8 @@ func AllRepeating3Times(arr []int) {
 	}
 	fmt.Println(ans)
 }
+
+//Efficent3Times : Given an array of a number we need to find out the number which is not repating 3 times
+func Efficent3Times(arr []int) {
+
+}
