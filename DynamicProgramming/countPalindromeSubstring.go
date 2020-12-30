@@ -4,36 +4,46 @@ import "fmt"
 
 //CountPalindromeSubstring : To count the number of palindrome substring in a given string
 func CountPalindromeSubstring(s string) {
+	var count int
 	dp := [][]bool{}
 	for i := 0; i < len(s); i++ {
 		t := make([]bool, len(s))
 		dp = append(dp, t)
 	}
-	row := 0
-	for i := 0; i < len(s); i++ {
-		newRow := row
-		newCol := i
-		for newCol < len(s) {
-			if i == 0 {
-				dp[newRow][newCol] = true
-			} else if i == 1 {
-				if s[newRow] == s[newCol] {
-					dp[newRow][newCol] = true
+	for g := 0; g < len(s); g++ {
+		col := g
+		row := 0
+		for {
+			if row == len(s) || col == len(s) {
+				break
+			}
+			if g == 0 {
+				dp[row][col] = true
+			} else if g == 1 {
+				if string(s[row]) == string(s[col]) {
+					dp[row][col] = true
+					count++
+
 				} else {
-					dp[newRow][newCol] = false
+					dp[row][col] = false
 				}
 			} else {
-				if s[newRow] == s[newCol] && dp[newRow-1][newCol-1] == true {
-					dp[newRow][newCol] = true
+				if string(s[row]) == string(s[col]) {
+					if dp[row+1][col-1] == false {
+						dp[row][col] = false
+					} else {
+						dp[row][col] = true
+						count++
+					}
 				} else {
-					dp[newRow][newCol] = false
+					dp[row][col] = false
 				}
 			}
 
-			newRow++
-			newCol++
-		}
+			row++
+			col++
 
+		}
 	}
-	fmt.Println(dp)
+	fmt.Println("The count is ", count)
 }
