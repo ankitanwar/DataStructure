@@ -13,6 +13,7 @@ type Node struct {
 	Data  interface{}
 	Left  *Node
 	Right *Node
+	Lis   int
 }
 
 type stack struct {
