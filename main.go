@@ -1,9 +1,8 @@
 package main
 
-import dynamicprogramming "github.com/ankitanwar/Golang-DataStructure/DynamicProgramming"
+import array "github.com/ankitanwar/Golang-DataStructure/arrays"
 
 func main() {
-	arr := []string{"i", "like", "sam", "sung", "samsung", "mobile",
-		"ice", "cream", "icecream", "man", "go", "mango"}
-	dynamicprogramming.WordWarp("samsungandmangok", arr)
+	arr := []int{1, 2, 3, 4, 5}
+	array.CyclicRotateArrayByk(arr, 4)
 }
