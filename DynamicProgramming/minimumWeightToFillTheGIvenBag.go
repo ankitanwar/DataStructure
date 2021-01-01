@@ -43,14 +43,14 @@ func helperWeightMinimumDp(weight int, cost []int) {
 			} else if i == 0 {
 				dp[i][j] = 99999
 			} else {
-				if j <= i {
-					dp[i][j] = minimum(cost[i-1]+dp[i][j-cost[i-j]], dp[i-1][j])
+				if j >= i && cost[i-1] != -1 {
+					dp[i][j] = minimum(cost[i-1]+dp[i][j-i], dp[i-1][j])
 				} else {
 					dp[i][j] = dp[i-1][j]
 				}
 			}
 		}
 	}
-	fmt.Println(dp)
+	fmt.Println(dp[len(cost)][weight])
 
 }

@@ -3,6 +3,7 @@ package main
 import dynamicprogramming "github.com/ankitanwar/Golang-DataStructure/DynamicProgramming"
 
 func main() {
-	arr := []int{1, 2, 7}
-	dynamicprogramming.MinimizeTheSubsetSum(arr)
+	arr := []string{"i", "like", "sam", "sung", "samsung", "mobile",
+		"ice", "cream", "icecream", "man", "go", "mango"}
+	dynamicprogramming.WordWarp("samsungandmangok", arr)
 }
