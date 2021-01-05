@@ -1,8 +1,14 @@
 package main
 
-import array "github.com/ankitanwar/Golang-DataStructure/arrays"
+import (
+	"fmt"
+
+	dynamicprogramming "github.com/ankitanwar/Golang-DataStructure/DynamicProgramming"
+)
 
 func main() {
-	arr := []int{1, 2, 3, 4, 5}
-	array.CyclicRotateArrayByk(arr, 4)
+	arr := []int{2, 2, 2}
+	ans := dynamicprogramming.Subset(arr, 6, 3)
+	fmt.Println(ans)
+
 }
