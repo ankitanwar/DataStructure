@@ -1,14 +1,9 @@
 package main
 
-import (
-	"fmt"
-
-	dynamicprogramming "github.com/ankitanwar/Golang-DataStructure/DynamicProgramming"
-)
+import array "github.com/ankitanwar/Golang-DataStructure/arrays"
 
 func main() {
-	arr := []int{2, 2, 2}
-	ans := dynamicprogramming.Subset(arr, 6, 3)
-	fmt.Println(ans)
+	arr := []int{8, 4, 2, 1}
+	array.CountInversion(arr)
 
 }
